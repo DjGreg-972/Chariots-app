@@ -1,26 +1,22 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const tbody = document.getElementById("etat-chariots");
-  const chariots = JSON.parse(localStorage.getItem("chariots")) || [];
+  const chariots = JSON.parse(localStorage.getItem("chariots") || "[]");
 
-  chariots.forEach(chariot => {
+  const emoji = {
+    "fonctionnel": "🟢 Fonctionnel",
+    "reparation": "🟠 En réparation",
+    "panne": "🔴 En panne"
+  };
+
+  chariots.forEach(c => {
     const tr = document.createElement("tr");
-
-    const tdNom = document.createElement("td");
-    tdNom.textContent = chariot.nom;
-    tr.appendChild(tdNom);
-
-    const tdEtat = document.createElement("td");
-    tdEtat.textContent = chariot.etat;
-    tr.appendChild(tdEtat);
-
-    const tdCommentaire = document.createElement("td");
-    if (chariot.etat === "panne" || chariot.etat === "reparation") {
-      tdCommentaire.textContent = chariot.commentaire || "(Aucun commentaire)";
-    } else {
-      tdCommentaire.textContent = "-";
-    }
-    tr.appendChild(tdCommentaire);
-
+    const commentaire = c.commentaire ? c.commentaire : "-";
+    tr.innerHTML = `
+      <td>${c.nom}</td>
+      <td>${emoji[c.etat]}</td>
+      <td>${commentaire}</td>
+    `;
     tbody.appendChild(tr);
   });
 });
