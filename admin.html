@@ -3,29 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin - Ajouter un chariot</title>
+  <title>Admin</title>
   <link rel="stylesheet" href="admin.css" />
 </head>
 <body>
+  <a href="index.html" class="back-btn">⟵ Accueil</a>
   <div class="container">
     <h1>Ajouter un chariot</h1>
-
     <label for="nom">Nom du chariot :</label>
-    <input type="text" id="nom" name="nom" required />
-
+    <input type="text" id="nom" required />
     <label for="etat">État :</label>
-    <select id="etat" name="etat">
+    <select id="etat">
       <option value="fonctionnel">Fonctionnel</option>
       <option value="reparation">En réparation</option>
       <option value="panne">En panne</option>
     </select>
-
+    <label for="commentaire">Commentaire :</label>
+    <input type="text" id="commentaire" placeholder="(facultatif)" />
     <button onclick="ajouterChariot()">Ajouter</button>
-
-    <h2 style="margin-top: 30px;">Parc actuel</h2>
+    <h2>Parc actuel</h2>
     <ul id="liste-chariots"></ul>
   </div>
-
   <script src="admin.js"></script>
 </body>
 </html>

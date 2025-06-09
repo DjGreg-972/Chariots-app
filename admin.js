@@ -1,35 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('chariotForm');
-  const list = document.getElementById('chariotList');
 
-  const loadChariots = () => {
-    const data = JSON.parse(localStorage.getItem('chariots') || '[]');
-    list.innerHTML = '';
-    data.forEach((c) => {
-      const li = document.createElement('li');
-      li.innerHTML = `<strong>${c.nom}</strong> — <span class="etat ${c.etat}">${getEtatLabel(c.etat)}</span>`;
-      list.appendChild(li);
-    });
-  };
+document.addEventListener("DOMContentLoaded", afficherChariots);
 
-  const getEtatLabel = (etat) => {
-    switch (etat) {
-      case 'vert': return 'Fonctionnel';
-      case 'orange': return 'En réparation';
-      case 'rouge': return 'En panne';
-    }
-  }
+function ajouterChariot() {
+  const nom = document.getElementById("nom").value.trim();
+  const etat = document.getElementById("etat").value;
+  const commentaire = document.getElementById("commentaire").value.trim();
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nom = document.getElementById('nom').value;
-    const etat = document.getElementById('etat').value;
-    const chariots = JSON.parse(localStorage.getItem('chariots') || '[]');
-    chariots.push({ nom, etat });
-    localStorage.setItem('chariots', JSON.stringify(chariots));
-    form.reset();
-    loadChariots();
+  if (!nom) return;
+
+  const chariots = JSON.parse(localStorage.getItem("chariots") || "[]");
+  chariots.push({ nom, etat, commentaire });
+  localStorage.setItem("chariots", JSON.stringify(chariots));
+
+  afficherChariots();
+  document.getElementById("nom").value = "";
+  document.getElementById("commentaire").value = "";
+}
+
+function afficherChariots() {
+  const chariots = JSON.parse(localStorage.getItem("chariots") || "[]");
+  const liste = document.getElementById("liste-chariots");
+  liste.innerHTML = "";
+  chariots.forEach(chariot => {
+    const li = document.createElement("li");
+    li.textContent = `${chariot.nom} - ${chariot.etat}`;
+    liste.appendChild(li);
   });
-
-  loadChariots();
-});
+}
