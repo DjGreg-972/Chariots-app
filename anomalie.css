@@ -1,47 +1,53 @@
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #007BFF, #66B2FF);
+  background: linear-gradient(to bottom, #007bff, #66b2ff);
+  color: #333;
 }
+
 .container {
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  margin: 50px auto;
   width: 90%;
   max-width: 500px;
-  margin: 50px auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
+
 h1 {
   text-align: center;
-  color: #007BFF;
+  color: #0056b3;
 }
+
 label {
   display: block;
   margin-top: 15px;
+  font-weight: bold;
 }
-input, select, textarea, button {
+
+input, select, button {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
 button {
-  margin-top: 20px;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   font-weight: bold;
+  margin-top: 20px;
   border: none;
 }
-.home-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 10px;
   text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  padding: 8px 15px;
+  border-radius: 5px;
 }
