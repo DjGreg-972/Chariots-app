@@ -1,58 +1,65 @@
-
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #007BFF, #6EC6FF);
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #007BFF, #60AFFF);
 }
 
 .container {
-  background: white;
+  background-color: white;
+  padding: 30px;
+  margin: 80px auto;
   max-width: 400px;
-  margin: 60px auto;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 h1 {
   text-align: center;
-  color: #0056b3;
+  color: #007BFF;
 }
 
 label {
-  margin-top: 10px;
   display: block;
-  font-weight: bold;
+  margin-top: 15px;
 }
 
-input, select {
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
-  border-radius: 6px;
   border: 1px solid #ccc;
+  border-radius: 5px;
   box-sizing: border-box;
 }
 
 button {
+  margin-top: 20px;
   width: 100%;
+  padding: 10px;
   background-color: #007BFF;
   color: white;
-  padding: 10px;
-  margin-top: 15px;
   border: none;
   border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
 }
 
-.back-button {
+button:hover {
+  background-color: #0056b3;
+}
+
+.btn-accueil {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
   background: #007BFF;
   color: white;
-  padding: 6px 12px;
-  border-radius: 8px;
-  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
 }
