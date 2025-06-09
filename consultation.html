@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anomalies chariots</title>
-  <link rel="stylesheet" href="anomalie.css" />
+  <title>Consultation des anomalies</title>
+  <link rel="stylesheet" href="consultation.css" />
 </head>
 <body>
-  <button class="btn-retour" onclick="window.location.href='index.html'">🏠 Accueil</button>
+  <a href="index.html" class="back-button">🏠 Accueil</a>
   <div class="container">
-    <h1>Anomalies chariots</h1>
-    <table id="table-anomalies">
+    <h1>Consultation des anomalies</h1>
+    <table>
       <thead>
         <tr>
           <th>Chariot</th>
-          <th>Type</th>
+          <th>Type d’anomalie</th>
           <th>Commentaire</th>
           <th>Date</th>
           <th>Heure</th>
@@ -22,9 +22,9 @@
           <th>Photo</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody id="anomalie-table-body"></tbody>
     </table>
   </div>
-  <script src="anomalie.js"></script>
+  <script src="consultation.js"></script>
 </body>
 </html>
