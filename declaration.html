@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Déclaration d'anomalie</title>
+  <link rel="stylesheet" href="declaration.css" />
+</head>
+<body>
+  <a href="index.html" class="back-button">🏠 Accueil</a>
+  <div class="container">
+    <h1>Déclaration d'anomalie</h1>
+    <label for="chariot">Chariot concerné :</label>
+    <select id="chariot"></select>
+
+    <label for="type">Type d'anomalie :</label>
+    <select id="type">
+      <option value="">-- Sélectionner --</option>
+      <option value="Problème batterie">Problème batterie</option>
+      <option value="Fuite hydraulique">Fuite hydraulique</option>
+      <option value="Roue à changer">Roue à changer</option>
+      <option value="Problème électrique">Problème électrique</option>
+      <option value="Problème informatique">Problème informatique</option>
+      <option value="Autre">Autre</option>
+    </select>
+
+    <label for="commentaire">Commentaire :</label>
+    <textarea id="commentaire"></textarea>
+
+    <label for="etat">Nouveau statut :</label>
+    <select id="etat">
+      <option value="fonctionnel">✅ Fonctionnel</option>
+      <option value="reparation">🟠 En réparation</option>
+      <option value="panne">🔴 En panne</option>
+    </select>
+
+    <label for="photo">Photo :</label>
+    <input type="file" id="photo" accept="image/*" capture="environment" />
+
+    <label for="date">Date :</label>
+    <input type="date" id="date"/>
+
+    <label for="heure">Heure :</label>
+    <input type="time" id="heure"/>
+
+    <label for="nom">Nom déclarant :</label>
+    <input type="text" id="nom" />
+
+    <button onclick="soumettreAnomalie()">Soumettre</button>
+  </div>
+  <script src="declaration.js"></script>
+</body>
+</html>
