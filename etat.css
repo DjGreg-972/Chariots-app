@@ -1,17 +1,50 @@
-.btn-retour {
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #007BFF, #66B2FF);
+  color: #333;
+}
+
+.back-button {
   position: absolute;
   top: 20px;
   left: 20px;
+  padding: 10px 20px;
   background-color: #007BFF;
   color: white;
   border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  z-index: 100;
+  font-size: 16px;
 }
 
-.btn-retour:hover {
-  background-color: #0056b3;
+.container {
+  background-color: white;
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #0056b3;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border-bottom: 1px solid #ccc;
+  padding: 12px 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
 }

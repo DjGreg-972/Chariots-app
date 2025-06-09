@@ -1,32 +1,26 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-  const tableau = document.getElementById("parc-tableau");
+  const tbody = document.getElementById("etat-chariots");
   const chariots = JSON.parse(localStorage.getItem("chariots")) || [];
 
   chariots.forEach(chariot => {
-    const ligne = document.createElement("tr");
-    const nomCell = document.createElement("td");
-    const etatCell = document.createElement("td");
+    const tr = document.createElement("tr");
 
-    nomCell.textContent = chariot.nom;
-    let couleur = chariot.etat === "fonctionnel" ? "🟢 Fonctionnel" :
-                  chariot.etat === "reparation" ? "🟠 En réparation" :
-                  "🔴 En panne";
-    etatCell.textContent = couleur;
+    const tdNom = document.createElement("td");
+    tdNom.textContent = chariot.nom;
+    tr.appendChild(tdNom);
 
-    ligne.appendChild(nomCell);
-    ligne.appendChild(etatCell);
-    tableau.appendChild(ligne);
+    const tdEtat = document.createElement("td");
+    tdEtat.textContent = chariot.etat;
+    tr.appendChild(tdEtat);
 
-    // Ajouter un commentaire si état != fonctionnel
-    if ((chariot.etat === "reparation" || chariot.etat === "panne") && chariot.commentaire) {
-      const ligneCommentaire = document.createElement("tr");
-      const cellule = document.createElement("td");
-      cellule.colSpan = 2;
-      cellule.className = "commentaire";
-      cellule.textContent = "📝 " + chariot.commentaire;
-      ligneCommentaire.appendChild(cellule);
-      tableau.appendChild(ligneCommentaire);
+    const tdCommentaire = document.createElement("td");
+    if (chariot.etat === "panne" || chariot.etat === "reparation") {
+      tdCommentaire.textContent = chariot.commentaire || "(Aucun commentaire)";
+    } else {
+      tdCommentaire.textContent = "-";
     }
+    tr.appendChild(tdCommentaire);
+
+    tbody.appendChild(tr);
   });
 });
