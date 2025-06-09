@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Déclaration d'anomalie</title>
+  <link rel="stylesheet" href="anomalie.css" />
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-button">🏠 Accueil</a>
+    <h1>Déclaration d'anomalie</h1>
+
+    <form id="anomalieForm">
+      <label for="chariot">Chariot concerné :</label>
+      <select id="chariot" name="chariot" required></select>
+
+      <label for="anomalie">Type d'anomalie :</label>
+      <select id="anomalie" name="anomalie" required>
+        <option value="">-- Sélectionner --</option>
+        <option value="batterie">Problème batterie</option>
+        <option value="electrique">Problème électrique</option>
+        <option value="fuite">Fuite hydraulique</option>
+        <option value="informatique">Problème informatique</option>
+        <option value="roue">Roue à changer</option>
+        <option value="autre">Autre</option>
+      </select>
+
+      <label for="photo">Photo :</label>
+      <input type="file" accept="image/*" capture="environment" id="photo" name="photo" required />
+
+      <label for="date">Date :</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="heure">Heure :</label>
+      <input type="time" id="heure" name="heure" required />
+
+      <label for="nom">Nom déclarant :</label>
+      <input type="text" id="nom" name="nom" required />
+
+      <button type="submit">Soumettre</button>
+    </form>
+  </div>
+
+  <script src="anomalie.js"></script>
+</body>
+</html>
