@@ -1,11 +1,52 @@
 
-.etat.vert { color: green; font-weight: bold; }
-.etat.orange { color: orange; font-weight: bold; }
-.etat.rouge { color: red; font-weight: bold; }
-form {
-  max-width: 400px;
-  margin: auto;
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to bottom, #005b9f, #66b3ff);
+  color: #333;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+  color: #005b9f;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0073b7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005b9f;
 }
