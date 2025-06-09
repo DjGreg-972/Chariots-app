@@ -2,46 +2,56 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #007BFF, #66B2FF);
+  background: linear-gradient(to bottom, #007bff, #66b2ff);
 }
-.container {
+
+.form-container {
   background: white;
-  padding: 20px;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
   border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
-  margin: 50px auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
 }
+
 h1 {
   text-align: center;
-  color: #007BFF;
+  color: #007bff;
 }
+
 label {
   display: block;
   margin-top: 15px;
+  font-weight: bold;
 }
-input, select, textarea, button {
+
+input, select, textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
+  padding: 8px;
+  margin-top: 4px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
 button {
-  margin-top: 20px;
-  background-color: #007BFF;
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
   color: white;
-  font-weight: bold;
   border: none;
-}
-.home-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 15px;
   border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-retour {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #007bff;
+  color: white;
+  padding: 8px 12px;
   text-decoration: none;
+  border-radius: 5px;
 }

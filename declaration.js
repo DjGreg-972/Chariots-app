@@ -1,30 +1,35 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+function soumettreAnomalie() {
+  const chariot = document.getElementById('chariot').value;
+  const type = document.getElementById('type').value;
+  const commentaire = document.getElementById('commentaire').value;
+  const date = document.getElementById('date').value;
+  const heure = document.getElementById('heure').value;
+  const nom = document.getElementById('nom').value;
+  const photo = document.getElementById('photo').files[0];
+
+  const anomalie = {
+    chariot,
+    type,
+    commentaire,
+    date,
+    heure,
+    nom,
+    photo: photo ? photo.name : null
+  };
+
+  alert("Anomalie soumise :\n" + JSON.stringify(anomalie, null, 2));
+}
+
+// Simule les noms des chariots à partir du localStorage
+window.onload = () => {
   const chariots = JSON.parse(localStorage.getItem("chariots") || "[]");
-  const chariotSelect = document.getElementById("chariot");
+  const select = document.getElementById("chariot");
+
   chariots.forEach(c => {
     const option = document.createElement("option");
     option.value = c.nom;
     option.textContent = c.nom;
-    chariotSelect.appendChild(option);
+    select.appendChild(option);
   });
-
-  const form = document.getElementById("anomalieForm");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const data = {
-      chariot: form.chariot.value,
-      type: form.type.value,
-      commentaire: form.commentaire.value,
-      photo: form.photo.files[0] ? form.photo.files[0].name : "",
-      date: form.date.value,
-      heure: form.heure.value,
-      nom: form.nom.value
-    };
-
-    console.log("Anomalie déclarée :", data);
-    alert("Anomalie déclarée avec succès !");
-    form.reset();
-  });
-});
+}
