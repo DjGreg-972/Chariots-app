@@ -15,7 +15,7 @@ async function envoyerAnomalie() {
   const statut = document.getElementById('statut').value;
   const date = new Date().toISOString();
 
-  const { error } = await supabase.from('Anomalies').insert([{
+  const { error } = await supabase.from('anomalies').insert([{
     chariot,
     type,
     commentaire,
