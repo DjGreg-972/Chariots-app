@@ -1,34 +1,37 @@
 
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-a
-const supabase = createClient(
-  'https://harsyswhkmukiesqrkcj.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhcnN5c3doa211a2llc3Fya2NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MDg2ODQsImV4cCI6MjA2NTA4NDY4NH0.PumlJG2DW3TxEJP8NDnO97iDIfP7YGfpxtKv8FVZME0'
-);
+document.addEventListener("DOMContentLoaded", async () => {
+  const { createClient } = supabase;
+  const supabaseUrl = "https://harsyswhkmukiesqrkcj.supabase.co";
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhcnN5c3doa211a2llc3Fya2NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MDg2ODQsImV4cCI6MjA2NTA4NDY4NH0.PumlJG2DW3TxEJP8NDnO97iDIfP7YGfpxtKv8FVZME0";
+  const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
-async function chargerAnomalies() {
-  const { data, error } = await supabase.from('anomalies').select('*');
+  const { data, error } = await supabaseClient
+    .from("anomalies")
+    .select("*")
+    .order("date", { ascending: false });
 
-  if (error) {
-    alert("Erreur de lecture : " + error.message);
+  const tableBody = document.querySelector("#anomalies-table tbody");
+  if (error || !data || data.length === 0) {
+    const row = document.createElement("tr");
+    const cell = document.createElement("td");
+    cell.colSpan = 7;
+    cell.textContent = "Aucune anomalie enregistrée.";
+    row.appendChild(cell);
+    tableBody.appendChild(row);
     return;
   }
 
-  const tableau = document.getElementById("table-anomalies");
-  tableau.innerHTML = "";
-
-  data.forEach(item => {
-    const row = tableau.insertRow();
+  data.forEach(anomalie => {
+    const row = document.createElement("tr");
     row.innerHTML = `
-      <td>${item.date}</td>
-      <td>${item.chariot}</td>
-      <td>${item.type}</td>
-      <td>${item.commentaire}</td>
-      <td>${item.photo ? `<a href="${item.photo}" target="_blank">Voir</a>` : '—'}</td>
-      <td>${item.auteur}</td>
-      <td>${item.statut}</td>
+      <td>${anomalie.date || ""}</td>
+      <td>${anomalie.chariot || ""}</td>
+      <td>${anomalie.type || ""}</td>
+      <td>${anomalie.commentaire || ""}</td>
+      <td>${anomalie.photo_url ? `<a href="${anomalie.photo_url}" target="_blank">Voir</a>` : ""}</td>
+      <td>${anomalie.declarant || ""}</td>
+      <td>${anomalie.statut || ""}</td>
     `;
+    tableBody.appendChild(row);
   });
-}
-
-window.onload = chargerAnomalies;
+});
