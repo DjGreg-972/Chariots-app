@@ -9,19 +9,26 @@ fetch(`${SUPABASE_URL}/rest/v1/anomalies?select=*`, {
 })
   .then((res) => res.json())
   .then((data) => {
+    console.log("Anomalies récupérées :", data);
     const tbody = document.querySelector("#anomaliesTable tbody");
+    if (!tbody) {
+      console.error("Élément #anomaliesTable introuvable dans le HTML.");
+      return;
+    }
+
     if (data.length === 0) {
-      tbody.innerHTML = "<tr><td colspan='6'>Aucune anomalie trouvée.</td></tr>";
+      tbody.innerHTML = "<tr><td colspan='7'>Aucune anomalie trouvée.</td></tr>";
     } else {
       data.forEach((item) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td>${item.date}</td>
-          <td>${item.chariot}</td>
-          <td>${item.type}</td>
+          <td>${item.date || "-"}</td>
+          <td>${item.heure || "-"}</td>
+          <td>${item.chariot || "-"}</td>
+          <td>${item.type || "-"}</td>
           <td>${item.commentaire || "-"}</td>
-          <td>${item.declarant}</td>
-          <td>${item.statut}</td>
+          <td>${item.declarant || "-"}</td>
+          <td>${item.statut || "-"}</td>
         `;
         tbody.appendChild(row);
       });
