@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Déclaration d'anomalie</title>
-    <link rel="stylesheet" href="declaration.css">
+  <meta charset="UTF-8">
+  <title>Déclaration d'anomalie</title>
+  <link rel="stylesheet" href="declaration.css">
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-button">🏠 Accueil</a>
-        <h1>Déclaration d'anomalie</h1>
-        <form id="anomalie-form">
-            <label for="chariot">Chariot concerné :</label>
-            <select id="chariot" name="chariot"></select>
+  <button onclick="window.location.href='index.html'" class="btn-retour">🏠 Accueil</button>
+  <div class="form-container">
+    <h2>Déclaration d'anomalie</h2>
+    <form id="anomalyForm">
+      <label for="chariot">Chariot concerné :</label>
+      <select id="chariot" name="chariot" required></select>
 
-            <label for="type">Type d'anomalie :</label>
-            <select id="type" name="type">
-                <option value="">-- Sélectionner --</option>
-                <option value="batterie">problème batterie</option>
-                <option value="hydraulique">fuite hydraulique</option>
-                <option value="roue">roue à changer</option>
-                <option value="electrique">problème électrique</option>
-                <option value="informatique">problème informatique</option>
-                <option value="autre">autre</option>
-            </select>
+      <label for="type">Type d'anomalie :</label>
+      <select id="type" name="type" required>
+        <option value="">-- Sélectionner --</option>
+        <option value="batterie">Problème batterie</option>
+        <option value="hydraulique">Fuite hydraulique</option>
+        <option value="roue">Roue à changer</option>
+        <option value="electrique">Problème électrique</option>
+        <option value="informatique">Problème informatique</option>
+        <option value="autre">Autre</option>
+      </select>
 
-            <label for="commentaire">Commentaire :</label>
-            <textarea id="commentaire" name="commentaire"></textarea>
+      <label for="commentaire">Commentaire :</label>
+      <input type="text" id="commentaire" name="commentaire">
 
-            <label for="photo">Photo :</label>
-            <input type="file" id="photo" name="photo" accept="image/*" capture="environment">
+      <label for="photo">Photo :</label>
+      <input type="file" id="photo" name="photo" accept="image/*" capture="environment">
 
-            <label for="date">Date :</label>
-            <input type="date" id="date" name="date">
+      <label for="date">Date :</label>
+      <input type="date" id="date" name="date" required>
 
-            <label for="heure">Heure :</label>
-            <input type="time" id="heure" name="heure">
+      <label for="heure">Heure :</label>
+      <input type="time" id="heure" name="heure" required>
 
-            <label for="declarant">Nom déclarant :</label>
-            <input type="text" id="declarant" name="declarant">
+      <label for="declarant">Nom déclarant :</label>
+      <input type="text" id="declarant" name="declarant" required>
 
-            <label for="statut">Statut :</label>
-            <select id="statut" name="statut">
-                <option value="fonctionnel">🟢 Fonctionnel</option>
-                <option value="reparation">🟠 En réparation</option>
-                <option value="panne">🔴 En panne</option>
-            </select>
+      <label for="statut">Statut du chariot :</label>
+      <select id="statut" name="statut" required>
+        <option value="fonctionnel">🟢 Fonctionnel</option>
+        <option value="reparation">🟠 En réparation</option>
+        <option value="panne">🔴 En panne</option>
+      </select>
 
-            <button type="submit">Soumettre</button>
-        </form>
-    </div>
-    <script src="declaration.js"></script>
+      <button type="submit">Soumettre</button>
+    </form>
+  </div>
+  <script src="declaration.js"></script>
 </body>
 </html>
