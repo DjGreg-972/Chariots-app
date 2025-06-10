@@ -1,13 +1,13 @@
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
+a
 const supabase = createClient(
   'https://harsyswhkmukiesqrkcj.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhcnN5c3doa211a2llc3Fya2NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MDg2ODQsImV4cCI6MjA2NTA4NDY4NH0.PumlJG2DW3TxEJP8NDnO97iDIfP7YGfpxtKv8FVZME0'
 );
 
 async function chargerAnomalies() {
-  const { data, error } = await supabase.from('Anomalies').select('*');
+  const { data, error } = await supabase.from('anomalies').select('*');
 
   if (error) {
     alert("Erreur de lecture : " + error.message);
