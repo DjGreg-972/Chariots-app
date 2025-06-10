@@ -1,30 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Consultation des anomalies</title>
-  <link rel="stylesheet" href="consultation.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="index.html" class="back-button">🏠 Accueil</a>
+  <button onclick="window.location.href='index.html'" class="btn-retour">Accueil</button>
   <div class="container">
-    <h1>Consultation des anomalies</h1>
+    <h1>Anomalies déclarées</h1>
     <table>
       <thead>
         <tr>
-          <th>Chariot</th>
-          <th>Type d’anomalie</th>
-          <th>Commentaire</th>
           <th>Date</th>
-          <th>Heure</th>
-          <th>Déclarant</th>
+          <th>Chariot</th>
+          <th>Type</th>
+          <th>Commentaire</th>
           <th>Photo</th>
+          <th>Déclarant</th>
+          <th>Statut</th>
         </tr>
       </thead>
-      <tbody id="anomalie-table-body"></tbody>
+      <tbody id="table-anomalies">
+        <!-- Contenu inséré dynamiquement -->
+      </tbody>
     </table>
   </div>
-  <script src="consultation.js"></script>
+  <script type="module" src="consultation.js"></script>
 </body>
 </html>

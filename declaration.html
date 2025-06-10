@@ -1,53 +1,60 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Déclaration d'anomalie</title>
-  <link rel="stylesheet" href="declaration.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="index.html" class="back-button">🏠 Accueil</a>
+  <button onclick="window.location.href='index.html'" class="btn-retour">Accueil</button>
   <div class="container">
-    <h1>Déclaration d'anomalie</h1>
-    <label for="chariot">Chariot concerné :</label>
-    <select id="chariot"></select>
+    <h1>Déclarer une anomalie</h1>
+    <form id="form-anomalie">
+      <label for="chariot">Chariot :</label>
+      <input type="text" id="chariot" required>
 
-    <label for="type">Type d'anomalie :</label>
-    <select id="type">
-      <option value="">-- Sélectionner --</option>
-      <option value="Problème batterie">Problème batterie</option>
-      <option value="Fuite hydraulique">Fuite hydraulique</option>
-      <option value="Roue à changer">Roue à changer</option>
-      <option value="Problème électrique">Problème électrique</option>
-      <option value="Problème informatique">Problème informatique</option>
-      <option value="Autre">Autre</option>
-    </select>
+      <label for="type">Type d’anomalie :</label>
+      <select id="type">
+        <option value="problème batterie">Problème batterie</option>
+        <option value="fuite hydraulique">Fuite hydraulique</option>
+        <option value="roue à changer">Roue à changer</option>
+        <option value="problème électrique">Problème électrique</option>
+        <option value="problème informatique">Problème informatique</option>
+        <option value="autre">Autre</option>
+      </select>
 
-    <label for="commentaire">Commentaire :</label>
-    <textarea id="commentaire"></textarea>
+      <label for="commentaire">Commentaire :</label>
+      <textarea id="commentaire" rows="3"></textarea>
 
-    <label for="etat">Nouveau statut :</label>
-    <select id="etat">
-      <option value="fonctionnel">✅ Fonctionnel</option>
-      <option value="reparation">🟠 En réparation</option>
-      <option value="panne">🔴 En panne</option>
-    </select>
+      <label for="photo">Photo (URL ou fichier) :</label>
+      <input type="file" id="photoInput" accept="image/*">
+      <input type="hidden" id="photo">
 
-    <label for="photo">Photo :</label>
-    <input type="file" id="photo" accept="image/*" capture="environment" />
+      <label for="auteur">Nom du déclarant :</label>
+      <input type="text" id="auteur" required>
 
-    <label for="date">Date :</label>
-    <input type="date" id="date"/>
+      <label for="statut">Statut du chariot :</label>
+      <select id="statut">
+        <option value="fonctionnel">🟢 Fonctionnel</option>
+        <option value="reparation">🟠 En réparation</option>
+        <option value="panne">🔴 En panne</option>
+      </select>
 
-    <label for="heure">Heure :</label>
-    <input type="time" id="heure"/>
-
-    <label for="nom">Nom déclarant :</label>
-    <input type="text" id="nom" />
-
-    <button onclick="soumettreAnomalie()">Soumettre</button>
+      <button type="button" id="envoyer">Envoyer</button>
+    </form>
   </div>
-  <script src="declaration.js"></script>
+
+  <script type="module" src="declaration.js"></script>
+  <script>
+    // Mettre le nom du fichier dans le champ photo
+    document.getElementById('photoInput').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        document.getElementById('photo').value = file.name;
+      }
+    });
+  </script>
 </body>
 </html>
