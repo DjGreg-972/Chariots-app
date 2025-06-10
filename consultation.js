@@ -1,3 +1,4 @@
+
 const SUPABASE_URL = "https://harsyswhkmukiesqrkcj.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhcnN5c3doa211a2llc3Fya2NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MDg2ODQsImV4cCI6MjA2NTA4NDY4NH0.PumlJG2DW3TxEJP8NDnO97iDIfP7YGfpxtKv8FVZME0";
 
@@ -9,13 +10,8 @@ fetch(`${SUPABASE_URL}/rest/v1/anomalies?select=*`, {
 })
   .then((res) => res.json())
   .then((data) => {
-    console.log("Anomalies récupérées :", data);
     const tbody = document.querySelector("#anomaliesTable tbody");
-    if (!tbody) {
-      console.error("Élément #anomaliesTable introuvable dans le HTML.");
-      return;
-    }
-
+    tbody.innerHTML = "";
     if (data.length === 0) {
       tbody.innerHTML = "<tr><td colspan='7'>Aucune anomalie trouvée.</td></tr>";
     } else {
