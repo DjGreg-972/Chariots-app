@@ -1,31 +1,28 @@
-// Configuration Supabase
 const SUPABASE_URL = "https://harsyswhkmukiesqrkcj.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhcnN5c3doa211a2llc3Fya2NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MDg2ODQsImV4cCI6MjA2NTA4NDY4NH0.PumlJG2DW3TxEJP8NDnO97iDIfP7YGfpxtKv8FVZME0";
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// Chargement dynamique des chariots depuis Supabase
-document.addEventListener("DOMContentLoaded", async () => {
-  const chariotSelect = document.getElementById("chariot");
-
-  const { data: chariots, error } = await supabase
+async function chargerChariots() {
+  const { data, error } = await supabase
     .from("chariots")
     .select("nom");
 
   if (error) {
-    console.error("Erreur de récupération des chariots :", error.message);
+    alert("Erreur lors du chargement des chariots : " + error.message);
     return;
   }
 
-  chariotSelect.innerHTML = ""; // Nettoyer les options
-  chariots.forEach(({ nom }) => {
-    const option = document.createElement("option");
-    option.value = nom;
-    option.textContent = nom;
-    chariotSelect.appendChild(option);
-  });
-});
+  const select = document.getElementById("chariot");
+  select.innerHTML = "";
 
-// Fonction de soumission d’une anomalie
+  data.forEach((chariot) => {
+    const option = document.createElement("option");
+    option.value = chariot.nom;
+    option.textContent = chariot.nom;
+    select.appendChild(option);
+  });
+}
+
 async function soumettreAnomalie() {
   const chariot = document.getElementById("chariot").value;
   const type = document.getElementById("type").value;
@@ -35,7 +32,7 @@ async function soumettreAnomalie() {
   const declarant = document.getElementById("nom").value;
   const statut = document.getElementById("etat").value;
 
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from("anomalies")
     .insert([{ chariot, type, commentaire, date, heure, declarant, statut }]);
 
@@ -46,3 +43,5 @@ async function soumettreAnomalie() {
     window.location.href = "index.html";
   }
 }
+
+window.addEventListener("DOMContentLoaded", chargerChariots);
