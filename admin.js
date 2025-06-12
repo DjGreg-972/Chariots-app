@@ -1,29 +1,19 @@
 
-document.addEventListener("DOMContentLoaded", afficherChariots);
+const SUPABASE_URL = "https://harsyswhkmukiesqrkcj.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhcnN5c3doa211a2llc3Fya2NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MDg2ODQsImV4cCI6MjA2NTA4NDY4NH0.PumlJG2DW3TxEJP8NDnO97iDIfP7YGfpxtKv8FVZME0";
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-function ajouterChariot() {
-  const nom = document.getElementById("nom").value.trim();
-  const etat = document.getElementById("etat").value;
-  const commentaire = document.getElementById("commentaire").value.trim();
+async function ajouterChariot() {
+    const nom = document.getElementById("nom").value;
+    const statut = document.getElementById("statut").value;
+    const commentaire = document.getElementById("commentaire").value;
 
-  if (!nom) return;
+    const { error } = await supabase.from("chariots").insert([{ nom, statut, commentaire }]);
 
-  const chariots = JSON.parse(localStorage.getItem("chariots") || "[]");
-  chariots.push({ nom, etat, commentaire });
-  localStorage.setItem("chariots", JSON.stringify(chariots));
-
-  afficherChariots();
-  document.getElementById("nom").value = "";
-  document.getElementById("commentaire").value = "";
-}
-
-function afficherChariots() {
-  const chariots = JSON.parse(localStorage.getItem("chariots") || "[]");
-  const liste = document.getElementById("liste-chariots");
-  liste.innerHTML = "";
-  chariots.forEach(chariot => {
-    const li = document.createElement("li");
-    li.textContent = `${chariot.nom} - ${chariot.etat}`;
-    liste.appendChild(li);
-  });
+    if (error) {
+        alert("Erreur : " + error.message);
+    } else {
+        alert("Chariot ajouté avec succès !");
+        window.location.href = "index.html";
+    }
 }

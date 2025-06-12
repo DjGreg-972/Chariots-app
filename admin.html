@@ -1,29 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin</title>
-  <link rel="stylesheet" href="admin.css" />
+  <title>Admin - Ajouter un chariot</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a href="index.html" class="back-btn">⟵ Accueil</a>
+  <a href="index.html" class="home-button">🏠 Accueil</a>
   <div class="container">
     <h1>Ajouter un chariot</h1>
+
     <label for="nom">Nom du chariot :</label>
-    <input type="text" id="nom" required />
-    <label for="etat">État :</label>
-    <select id="etat">
-      <option value="fonctionnel">Fonctionnel</option>
-      <option value="reparation">En réparation</option>
-      <option value="panne">En panne</option>
+    <input type="text" id="nom">
+
+    <label for="statut">Statut :</label>
+    <select id="statut">
+      <option value="fonctionnel">✅ Fonctionnel</option>
+      <option value="reparation">🟠 En réparation</option>
+      <option value="panne">🔴 En panne</option>
     </select>
+
     <label for="commentaire">Commentaire :</label>
-    <input type="text" id="commentaire" placeholder="(facultatif)" />
+    <textarea id="commentaire" rows="2"></textarea>
+
     <button onclick="ajouterChariot()">Ajouter</button>
-    <h2>Parc actuel</h2>
-    <ul id="liste-chariots"></ul>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="admin.js"></script>
 </body>
 </html>
