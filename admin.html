@@ -1,49 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin - Ajouter un chariot</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #e9f2fb; padding: 20px; }
-    h1 { color: #004080; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #007acc; color: white; }
-    label { display: block; margin-top: 10px; }
-    input, select, textarea, button { width: 100%; padding: 8px; margin-top: 5px; }
-    button { background-color: #007acc; color: white; border: none; margin-top: 15px; }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <a href="index.html">🏠 Accueil</a>
-  <h1>Ajouter un chariot</h1>
-  <form id="form-ajout">
+  <a href="index.html" class="home-button">🏠 Accueil</a>
+  <div class="container">
+    <h1>Ajouter un chariot</h1>
     <label for="nom">Nom du chariot :</label>
-    <input type="text" id="nom" required>
+    <input type="text" id="nom" />
 
     <label for="statut">Statut :</label>
-    <select id="statut" required>
+    <select id="statut">
       <option value="fonctionnel">✅ Fonctionnel</option>
       <option value="reparation">🟠 En réparation</option>
       <option value="panne">🔴 En panne</option>
     </select>
 
     <label for="commentaire">Commentaire :</label>
-    <textarea id="commentaire" rows="2"></textarea>
+    <input type="text" id="commentaire" />
 
-    <button type="submit">Ajouter</button>
-  </form>
+    <button onclick="ajouterChariot()">Ajouter</button>
 
-  <h2>Liste des chariots</h2>
-  <table>
-    <thead>
-      <tr><th>Nom</th><th>Statut</th><th>Commentaire</th></tr>
-    </thead>
-    <tbody id="liste-chariots"></tbody>
-  </table>
-
+    <h2>Liste des chariots</h2>
+    <table id="chariotsTable">
+      <thead>
+        <tr><th>Nom</th><th>Statut</th><th>Commentaire</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="admin.js"></script>
 </body>
