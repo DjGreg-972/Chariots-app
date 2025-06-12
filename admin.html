@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin - Ajouter un chariot</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="admin.css">
 </head>
 <body>
   <a href="index.html" class="home-button">🏠 Accueil</a>
   <div class="container">
     <h1>Ajouter un chariot</h1>
     <label for="nom">Nom du chariot :</label>
-    <input type="text" id="nom" />
+    <input type="text" id="nom" placeholder="ex : PREP 1" />
 
     <label for="statut">Statut :</label>
     <select id="statut">
@@ -21,18 +21,19 @@
     </select>
 
     <label for="commentaire">Commentaire :</label>
-    <input type="text" id="commentaire" />
+    <input type="text" id="commentaire" placeholder="Optionnel"/>
 
     <button onclick="ajouterChariot()">Ajouter</button>
 
     <h2>Liste des chariots</h2>
-    <table id="chariotsTable">
+    <table>
       <thead>
         <tr><th>Nom</th><th>Statut</th><th>Commentaire</th></tr>
       </thead>
-      <tbody></tbody>
+      <tbody id="liste-chariots"></tbody>
     </table>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="admin.js"></script>
 </body>
