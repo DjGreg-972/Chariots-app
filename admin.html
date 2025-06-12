@@ -1,17 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin - Ajouter un chariot</title>
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin.css" />
 </head>
 <body>
   <a href="index.html" class="home-button">🏠 Accueil</a>
   <div class="container">
     <h1>Ajouter un chariot</h1>
     <label for="nom">Nom du chariot :</label>
-    <input type="text" id="nom" placeholder="ex : PREP 1" />
+    <input type="text" id="nom" placeholder="ex: PREP 1" />
 
     <label for="statut">Statut :</label>
     <select id="statut">
@@ -21,16 +22,16 @@
     </select>
 
     <label for="commentaire">Commentaire :</label>
-    <input type="text" id="commentaire" placeholder="Optionnel"/>
+    <input type="text" id="commentaire" placeholder="Optionnel" />
 
     <button onclick="ajouterChariot()">Ajouter</button>
 
     <h2>Liste des chariots</h2>
-    <table>
+    <table id="liste-chariots">
       <thead>
         <tr><th>Nom</th><th>Statut</th><th>Commentaire</th></tr>
       </thead>
-      <tbody id="liste-chariots"></tbody>
+      <tbody></tbody>
     </table>
   </div>
 

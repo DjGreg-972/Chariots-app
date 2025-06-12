@@ -1,55 +1,74 @@
+
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #0072bb, #66ccff);
   margin: 0;
-  padding: 0;
-  color: #000;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #0072bb, #6ec6ff);
+  color: #333;
 }
+
+.home-button {
+  display: inline-block;
+  margin: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .container {
   background: white;
-  max-width: 500px;
-  margin: 50px auto;
   padding: 20px;
+  margin: 40px auto;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-h1 {
+
+h1, h2 {
   text-align: center;
-  color: #005999;
+  color: #005a9c;
 }
+
 label {
   display: block;
-  margin-top: 15px;
+  margin-top: 10px;
+  font-weight: bold;
 }
+
 input, select {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
+
 button {
   width: 100%;
-  margin-top: 20px;
   padding: 10px;
-  background: #005999;
+  background-color: #005a9c;
   color: white;
   border: none;
-  cursor: pointer;
-  font-weight: bold;
+  border-radius: 5px;
+  font-size: 16px;
 }
-button:hover {
-  background: #004080;
-}
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
-th, td {
+
+table th, table td {
   border: 1px solid #ccc;
   padding: 8px;
-  text-align: left;
+  text-align: center;
 }
-th {
-  background: #0072bb;
+
+table thead {
+  background-color: #0072bb;
   color: white;
 }
